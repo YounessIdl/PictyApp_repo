@@ -11,13 +11,14 @@ export const Colors = {
   tertiary: '#6bb2b5', //Logo foncé
   grey: '#9CA3AF', // Gris foncé
   lightGrey:'#dcdee0', // Gris clair
+  interGrey: '#CCD0D4', // Intermediate
 };
 
-const { primary, secondary, tertiary, grey, lightGrey } = Colors;
+const { primary, secondary, tertiary, grey, lightGrey, interGrey } = Colors;
 
 export const MainContainer = styled.View`
   flex: 1;
-  padding: 15px;
+  padding: 0;
   padding-top: 0;
   background-color: ${Colors.primary};
 `;
@@ -42,19 +43,18 @@ export const WelcomeContainer = styled(SecondContainer)`
 `;
 
 export const AvatarView = styled.View`
-  width: 100%;
   align-items: center;
   flex-direction: row;
-`;
-
-export const Avatar = styled.Image`
-  width: 100px;
-  height: 100px;
   margin: auto;
-  border-width: 2px;
-  border-color: ${secondary};
-  margin-top: 10px;
-  margin-bottom:10px;
+  ${(props) =>
+    props.feed &&
+    `
+    margin: 0px;
+    padding-top: 5px;
+    justify-content: space-between;
+    padding-horizontal: 25px;
+    backgroundColor: ${lightGrey};
+  `}
 `;
 
 export const WelcomeImage = styled.Image`
@@ -76,10 +76,8 @@ export const PageTitle = styled.Text`
 `;
 
 export const SubTitle = styled.Text`
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 15px;
   letter-spacing: 1px;
-  font-weight: bold;
   color: ${secondary};
   ${(props) =>
     props.welcome &&
@@ -127,6 +125,7 @@ export const ButtonText = styled.Text`
     `
     font-weight: bold;
   `}
+  
 `;
 
 export const ExtraText = styled.Text`
@@ -163,6 +162,24 @@ export const StyledButton = styled.TouchableOpacity`
     `
     margin-horizontal: 50px;
   `}
+  ${(props) =>
+    props.signing == true &&    
+    `
+    height: 50px;
+    margin-left: 20px;
+  `}
+  ${(props) =>
+    props.feed == true &&    
+    `
+    margin-vertical: 6px;
+    height: 35px;
+  `}
+  ${(props) =>
+    props.createEvent == true &&    
+    `
+    margin-horizontal: 40px;
+    border-radius: 10px;
+  `}
 `;
 
 export const TextLink = styled.TouchableOpacity`
@@ -198,4 +215,17 @@ export const ExtraView = styled.View`
   padding: 10px;
 `;
 
+export const StreamEvent = styled.View`
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  padding-horizontal: 15px;
+  padding-bottom: 5px;
+  backgroundColor: ${interGrey};
+  borderWidth: 0px;
+`;
 
+export const PageLogo3 = styled.Image`
+    width: 100px;
+    aspectRatio: 2.42;
+`;
