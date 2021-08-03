@@ -12,7 +12,7 @@ import {
   SecondContainer,
 } from './../components/styles';
 
-const Welcome = () => {
+export const Welcome= ({navigation})=> {
   return (
     <>
       <StatusBar style="light" />
@@ -35,4 +35,3 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;

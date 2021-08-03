@@ -13,7 +13,7 @@ import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper'; /
 const { lightGrey, secondary, grey } = Colors;
 
 
-const Signup = () => {
+export const Signup = ({navigation})=> {
   const [hidePassword, setHidePassword] = useState(true);
   const [show, setShow] = useState(false);
   const [date, setDate] = useState(new Date(2000, 0, 1));
@@ -123,7 +123,7 @@ const Signup = () => {
                 <Line />
                 <ExtraView>
                     <ExtraText>Déjà un compte? </ExtraText>
-                    <TextLink>
+                    <TextLink onPress={()=>{navigation.pop()}}>
                     <TextLinkContent>Connexion</TextLinkContent>
                     </TextLink>
                 </ExtraView>
@@ -164,4 +164,3 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, i
   );
 };
 
-export default Signup;
