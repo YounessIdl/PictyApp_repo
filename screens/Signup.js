@@ -16,8 +16,6 @@ const Signup = () => {
   const [hidePassword, setHidePassword] = useState(true);
   const [show, setShow] = useState(false);
   const [date, setDate] = useState(new Date(2000, 0, 1));
-
-  // Actual value to be sent
   const [dob, setDob] = useState();
 
   const onChange = (event, selectedDate) => {
@@ -57,8 +55,8 @@ const Signup = () => {
             values = { ...values, dateOfBirth: dob };
             console.log(values);
           }}
-        >
-          {({ handleChange, handleBlur, handleSubmit, values }) => (
+        > 
+          {({ handleChange, handleBlur, handleSubmit, values }) => ( // Formalisme formulaire avec Formik
             <StyledFormArea>
               <MyTextInput
                 label="Nom et prénom"
