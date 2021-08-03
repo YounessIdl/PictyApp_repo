@@ -115,15 +115,19 @@ export const ButtonText = styled.Text`
   ${(props) =>
     props.google == true &&
     `
-    color: ${primary};
     padding: 25px;
+  `}
+  ${(props) =>
+    props.last == true &&    
+    `
+    font-weight: bold;
   `}
 `;
 
 export const ExtraText = styled.Text`
   justify-content: center;
   align-content: center;
-  color: ${tertiary};
+  color: ${grey};
   font-size: 15px;
 `;
 
@@ -146,9 +150,13 @@ export const StyledButton = styled.TouchableOpacity`
   ${(props) =>
     props.google == true &&
     `
-    background-color: ${secondary};
     flex-direction: row;
     justify-content: center;
+  `}
+  ${(props) =>
+    props.last == true &&    
+    `
+    margin-horizontal: 50px;
   `}
 `;
 
@@ -170,9 +178,10 @@ export const Line = styled.View`
 `;
 
 export const TextLinkContent = styled.Text`
-  color: ${grey} ;
+  color: ${tertiary} ;
   font-size: 15px;
 `;
+
 export const StyledFormArea = styled.View`
   width: 90%;
 `;

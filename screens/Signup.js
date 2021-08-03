@@ -8,6 +8,7 @@ import {
   MainContainer, PageLogo2, StyledInputLabel, StyledFormArea, StyledButton, StyledTextInput, LeftIcon, RightIcon,
   SecondContainer, ButtonText, Line, ExtraView, ExtraText, TextLink, TextLinkContent, Colors, PageTitle,
 } from './../components/styles';
+import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper'; // Pour éviter que le clavier ne cache l'input
 
 const { lightGrey, secondary, grey } = Colors;
 
@@ -24,112 +25,114 @@ const Signup = () => {
     setDate(currentDate);
     setDob(currentDate);
   };
-
+  
   const showDatePicker = () => {
     setShow('date');
   };
 
   return (
-    <MainContainer>
-      <StatusBar style="light-content" hidden = {true}/>
-      <SecondContainer>
-        <PageLogo2 resizeMode="contain" source={require('./../assets/img/pictylogo2.png')} />
-        <PageTitle>Créer un compte</PageTitle>
-        {show && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={date}
-            mode="date"
-            is24Hour={true}
-            display="default"
-            onChange={onChange}
-            style={{
-              backgroundColor: 'yellow',
-            }}
-          />
-        )}
+    <KeyboardAvoidingWrapper>  
+      <MainContainer>
+        <StatusBar style="light-content" hidden = {true}/>
+        <SecondContainer>
+            <PageLogo2 resizeMode="contain" source={require('./../assets/img/pictylogo2.png')} />
+            <PageTitle>Créer un compte</PageTitle>
+            {show && (
+            <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode="date"
+                is24Hour={true}
+                display="default"
+                onChange={onChange}
+                style={{
+                backgroundColor: 'yellow',
+                }}
+            />
+            )}
 
-        <Formik
-          initialValues={{ fullName: '', email: '', dateOfBirth: '', password: '', confirmPassword: '' }}
-          onSubmit={(values) => {
-            values = { ...values, dateOfBirth: dob };
-            console.log(values);
-          }}
-        > 
-          {({ handleChange, handleBlur, handleSubmit, values }) => ( // Formalisme formulaire avec Formik
-            <StyledFormArea>
-              <MyTextInput
-                label="Nom et prénom"
-                placeholder="Henri Dupont"
-                placeholderTextColor={grey}
-                onChangeText={handleChange('fullName')}
-                onBlur={handleBlur('fullName')}
-                value={values.fullName}
-                icon="person"
-              />
-              <MyTextInput
-                label="Adresse mail"
-                placeholder="abc@gmail.com"
-                placeholderTextColor={grey}
-                onChangeText={handleChange('email')}
-                onBlur={handleBlur('email')}
-                value={values.email}
-                keyboardType="email-address"
-                icon="mail"
-              />
-              <MyTextInput
-                label="Date de naissance"
-                placeholder="01/01/2000"
-                placeholderTextColor={grey}
-                onChangeText={handleChange('dateOfBirth')}
-                onBlur={handleBlur('dateOfBirth')}
-                value={dob ? dob.toDateString() : ''}
-                icon="calendar"
-                editable={false}
-                isDate={true}
-                showDatePicker={showDatePicker}
-              />
-              <MyTextInput
-                label="Mot de passe"
-                placeholder="* * * * * * * *"
-                placeholderTextColor={grey}
-                onChangeText={handleChange('password')}
-                onBlur={handleBlur('password')}
-                value={values.password}
-                secureTextEntry={hidePassword}
-                icon="lock"
-                isPassword={true}
-                hidePassword={hidePassword}
-                setHidePassword={setHidePassword}
-              />
-              <MyTextInput
-                label="Confirmer mot de passe"
-                placeholder="* * * * * * * *"
-                placeholderTextColor={grey}
-                onChangeText={handleChange('confirmPassword')}
-                onBlur={handleBlur('confirmPassword')}
-                value={values.confirmPassword}
-                secureTextEntry={hidePassword}
-                icon="lock"
-                isPassword={true}
-                hidePassword={hidePassword}
-                setHidePassword={setHidePassword}
-              />
-              <StyledButton onPress={handleSubmit}>
-                <ButtonText>Inscription</ButtonText>
-              </StyledButton>
-              <Line />
-              <ExtraView>
-                <ExtraText>Déjà un compte? </ExtraText>
-                <TextLink>
-                  <TextLinkContent>Connexion</TextLinkContent>
-                </TextLink>
-              </ExtraView>
-            </StyledFormArea>
-          )}
-        </Formik>
-      </SecondContainer>
-    </MainContainer>
+            <Formik
+            initialValues={{ fullName: '', email: '', dateOfBirth: '', password: '', confirmPassword: '' }}
+            onSubmit={(values) => {
+                values = { ...values, dateOfBirth: dob };
+                console.log(values);
+            }}
+            > 
+            {({ handleChange, handleBlur, handleSubmit, values }) => ( // Formalisme formulaire avec Formik
+                <StyledFormArea>
+                <MyTextInput
+                    label="Nom et prénom"
+                    placeholder="Henri Dupont"
+                    placeholderTextColor={grey}
+                    onChangeText={handleChange('fullName')}
+                    onBlur={handleBlur('fullName')}
+                    value={values.fullName}
+                    icon="person"
+                />
+                <MyTextInput
+                    label="Adresse mail"
+                    placeholder="abc@gmail.com"
+                    placeholderTextColor={grey}
+                    onChangeText={handleChange('email')}
+                    onBlur={handleBlur('email')}
+                    value={values.email}
+                    keyboardType="email-address"
+                    icon="mail"
+                />
+                <MyTextInput
+                    label="Date de naissance"
+                    placeholder="01/01/2000"
+                    placeholderTextColor={grey}
+                    onChangeText={handleChange('dateOfBirth')}
+                    onBlur={handleBlur('dateOfBirth')}
+                    value={dob ? dob.toDateString() : ''}
+                    icon="calendar"
+                    editable={false}
+                    isDate={true}
+                    showDatePicker={showDatePicker}
+                />
+                <MyTextInput
+                    label="Mot de passe"
+                    placeholder="* * * * * * * *"
+                    placeholderTextColor={grey}
+                    onChangeText={handleChange('password')}
+                    onBlur={handleBlur('password')}
+                    value={values.password}
+                    secureTextEntry={hidePassword}
+                    icon="lock"
+                    isPassword={true}
+                    hidePassword={hidePassword}
+                    setHidePassword={setHidePassword}
+                />
+                <MyTextInput
+                    label="Confirmer mot de passe"
+                    placeholder="* * * * * * * *"
+                    placeholderTextColor={grey}
+                    onChangeText={handleChange('confirmPassword')}
+                    onBlur={handleBlur('confirmPassword')}
+                    value={values.confirmPassword}
+                    secureTextEntry={hidePassword}
+                    icon="lock"
+                    isPassword={true}
+                    hidePassword={hidePassword}
+                    setHidePassword={setHidePassword}
+                />
+                <StyledButton onPress={handleSubmit}>
+                    <ButtonText>Inscription</ButtonText>
+                </StyledButton>
+                <Line />
+                <ExtraView>
+                    <ExtraText>Déjà un compte? </ExtraText>
+                    <TextLink>
+                    <TextLinkContent>Connexion</TextLinkContent>
+                    </TextLink>
+                </ExtraView>
+                </StyledFormArea>
+            )}
+            </Formik>
+        </SecondContainer>
+      </MainContainer>
+    </KeyboardAvoidingWrapper>    
   );
 };
 
