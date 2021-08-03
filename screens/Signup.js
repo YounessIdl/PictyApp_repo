@@ -13,7 +13,7 @@ import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper'; /
 const { lightGrey, secondary, grey } = Colors;
 
 
-const Signup = () => {
+const Signup = ({navigation}) => {
   const [hidePassword, setHidePassword] = useState(true);
   const [show, setShow] = useState(false);
   const [date, setDate] = useState(new Date(2000, 0, 1));
@@ -56,6 +56,7 @@ const Signup = () => {
             onSubmit={(values) => {
                 values = { ...values, dateOfBirth: dob };
                 console.log(values);
+                navigation.navigate("Welcome")
             }}
             > 
             {({ handleChange, handleBlur, handleSubmit, values }) => ( // Formalisme formulaire avec Formik
@@ -123,7 +124,7 @@ const Signup = () => {
                 <Line />
                 <ExtraView>
                     <ExtraText>Déjà un compte? </ExtraText>
-                    <TextLink>
+                    <TextLink onPress={()=> navigation.navigate("Login")}>
                     <TextLinkContent>Connexion</TextLinkContent>
                     </TextLink>
                 </ExtraView>

@@ -41,15 +41,20 @@ export const WelcomeContainer = styled(SecondContainer)`
   justify-content: center;
 `;
 
+export const AvatarView = styled.View`
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+`;
+
 export const Avatar = styled.Image`
   width: 100px;
   height: 100px;
   margin: auto;
-  border-radius: 50px;
   border-width: 2px;
   border-color: ${secondary};
-  margin-bottom: 10px;
   margin-top: 10px;
+  margin-bottom:10px;
 `;
 
 export const WelcomeImage = styled.Image`
