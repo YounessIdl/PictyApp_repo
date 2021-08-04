@@ -44,7 +44,7 @@ export default () => (
 
   
         <NavigationContainer >
-          <AuthStack.Navigator initialRouteName="Login">
+          <AuthStack.Navigator>
             <AuthStack.Screen options={{headerShown: false}} name="Login" component={Login} />
             <AuthStack.Screen options={{headerShown: false}} name="Signup" component={Signup} />
             <AuthStack.Screen options={{headerShown: false}} name="Tabs" component={Tabs} />

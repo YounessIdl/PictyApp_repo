@@ -8,7 +8,7 @@ import { startClock } from 'react-native-reanimated';
 const {secondary, primary } = Colors;
 
 
-const Feed=()=> {
+const Feed=({navigation})=> {
   return (
     <MainContainer >
       <StatusBar style="light-content" hidden = {true}/>

@@ -57,7 +57,7 @@ const Login = ({navigation}) => {
               hidePassword={hidePassword}
               setHidePassword={setHidePassword}
               />
-              <StyledButton onPress={()=>navigation.push("Welcome")}>
+              <StyledButton onPress={handleSubmit}>
               <ButtonText>Login</ButtonText>
               </StyledButton>
               <Line />
@@ -108,3 +108,4 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, .
   );
 };
 
+export default Login;
