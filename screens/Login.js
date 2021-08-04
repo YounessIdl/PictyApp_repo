@@ -28,7 +28,7 @@ const Login = ({navigation}) => {
             initialValues={{ email: '', password: '' }}
             onSubmit={(values) => {
               console.log(values);
-              navigation.navigate("Welcome")
+              navigation.navigate("Tabs")
             }}
           >
           
@@ -69,7 +69,7 @@ const Login = ({navigation}) => {
               </StyledButton>
               <ExtraView>
                 <ExtraText>Pas encore de compte ? </ExtraText>
-                <TextLink onPress={()=> navigation.navigate("Signup")}>
+                <TextLink onPress={()=> navigation.push("Signup")}>
                     <TextLinkContent>Inscription</TextLinkContent>
                 </TextLink>
               </ExtraView>
