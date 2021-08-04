@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Formik } from 'formik';
 import { Octicons, Fontisto, Ionicons } from '@expo/vector-icons';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import {
   MainContainer, PageLogo2, PageTitle,ExtraView, ExtraText, TextLink, TextLinkContent, Colors, StyledInputLabel, 
-  StyledFormArea, StyledButton, StyledTextInput, LeftIcon, RightIcon, SecondContainer, ButtonText, Line, 
+  StyledFormArea, StyledButton, StyledTextInput, LeftIcon, RightIcon, SecondContainer, ButtonText, Line
 } from './../components/styles';
 import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper'; // Pour éviter que le clavier ne cache l'input
-
+import { color } from 'react-native-reanimated';
 
 const { grey, primary, secondary } = Colors;
 
 //status bar: Barre de notifications
 
-export const Login = ({navigation}) =>{
+const Login = ({navigation}) => {
   const [hidePassword, setHidePassword] = useState(true);
   return (
     <KeyboardAvoidingWrapper>
@@ -28,6 +28,7 @@ export const Login = ({navigation}) =>{
             initialValues={{ email: '', password: '' }}
             onSubmit={(values) => {
               console.log(values);
+              navigation.navigate("Tabs")
             }}
           >
           
@@ -68,7 +69,7 @@ export const Login = ({navigation}) =>{
               </StyledButton>
               <ExtraView>
                 <ExtraText>Pas encore de compte ? </ExtraText>
-                <TextLink onPress={()=>{navigation.push("SignUp")}}>
+                <TextLink onPress={()=> navigation.push("Signup")}>
                     <TextLinkContent>Inscription</TextLinkContent>
                 </TextLink>
               </ExtraView>

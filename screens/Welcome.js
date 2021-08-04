@@ -1,18 +1,13 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
+import { Fontisto } from '@expo/vector-icons';
+import { View, Text, Image } from 'react-native';
 
 import {
-  Avatar,
-  PageTitle,
-  SubTitle,
-  StyledFormArea,
-  StyledButton,
-  WelcomeContainer,
-  ButtonText,
-  SecondContainer,
+  PageTitle, SubTitle, StyledFormArea, StyledButton, WelcomeContainer, ButtonText, SecondContainer,
 } from './../components/styles';
 
-export const Welcome= ({navigation})=> {
+const Welcome = ({navigation}) => {
   return (
     <>
       <StatusBar style="light" />
@@ -24,8 +19,10 @@ export const Welcome= ({navigation})=> {
           <SubTitle welcome={true}>olgasimp@gmail.com</SubTitle>
 
           <StyledFormArea>
-            <Avatar resizeMode="contain" source={require('./../assets/img/pictylogo2.png')} />
             <StyledButton onPress={() => {}}>
+              <Fontisto  name="angle-right" size={25} color={'#ffffff'} />
+            </StyledButton>
+            <StyledButton onPress={() => navigation.navigate("Login")}>
               <ButtonText>Se déconnecter</ButtonText>
             </StyledButton>
           </StyledFormArea>
