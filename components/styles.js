@@ -21,6 +21,13 @@ export const MainContainer = styled.View`
   padding: 0;
   padding-top: 0;
   background-color: ${Colors.primary};
+  ${(props) =>
+    props.bottomTab &&
+    `
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  `}
 `;
 
 export const SecondContainer = styled.View`
@@ -53,7 +60,6 @@ export const AvatarView = styled.View`
     padding-top: 5px;
     justify-content: space-between;
     padding-horizontal: 25px;
-    backgroundColor: ${lightGrey};
   `}
 `;
 
@@ -152,31 +158,32 @@ export const StyledButton = styled.TouchableOpacity`
   height: 60px;
 
   ${(props) =>
-    props.google == true &&
+    props.google &&
     `
     flex-direction: row;
     justify-content: center;
   `}
   ${(props) =>
-    props.last == true &&    
+    props.last  &&    
     `
     margin-horizontal: 50px;
   `}
   ${(props) =>
-    props.signing == true &&    
+    props.signing &&    
     `
     height: 50px;
     margin-left: 20px;
   `}
   ${(props) =>
-    props.feed == true &&    
+    props.feed &&    
     `
     margin-vertical: 6px;
     height: 35px;
   `}
   ${(props) =>
-    props.createEvent == true &&    
+    props.createEvent &&    
     `
+    height: 45px;
     margin-horizontal: 40px;
     border-radius: 10px;
   `}

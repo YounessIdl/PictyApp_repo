@@ -19,7 +19,7 @@ const Welcome = ({navigation}) => {
           <SubTitle welcome={true}>olgasimp@gmail.com</SubTitle>
 
           <StyledFormArea>
-            <StyledButton onPress={() => {}}>
+            <StyledButton onPress={() => navigation.navigate("Tabs")}>
               <Fontisto  name="angle-right" size={25} color={'#ffffff'} />
             </StyledButton>
             <StyledButton onPress={() => navigation.navigate("Login")}>

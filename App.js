@@ -1,8 +1,8 @@
 import React from 'react';
-import StackNav from './navigation/StackNav';
+import Navigation from './navigation/Navigation';
 import Feed from './screens/Feed.js';
 
 
 export default function App() {
-  return <Feed />;
+  return <Navigation />;
 }
