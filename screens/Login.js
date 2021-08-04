@@ -57,13 +57,13 @@ const Login = ({navigation}) => {
               hidePassword={hidePassword}
               setHidePassword={setHidePassword}
               />
-              <StyledButton onPress={handleSubmit}>
+              <StyledButton onPress={()=>navigation.push("Welcome")}>
               <ButtonText>Login</ButtonText>
               </StyledButton>
               <Line />
               <StyledButton google={true}>
               <Fontisto name="google" size={25} color={primary} />
-              <ButtonText google={true}>Connectez-vous avec 
+              <ButtonText google={true} onPress={()=>alert("todo!")}>Connectez-vous avec 
                   <Text style={{color: '#4285F4'}}> G</Text><Text style={{color: 'red'}}>o</Text><Text style={{color: 'yellow'}}>o</Text><Text style={{color: '#4285F4'}}>g</Text><Text style={{color: 'green'}}>l</Text><Text style={{color: 'red'}}>e</Text>
               </ButtonText>
               </StyledButton>
@@ -83,6 +83,8 @@ const Login = ({navigation}) => {
       </MainContainer>
     </KeyboardAvoidingWrapper>
   );
+  
+
 };
 
 const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
@@ -106,4 +108,3 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, .
   );
 };
 
-export default Login;

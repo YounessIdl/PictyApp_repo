@@ -171,4 +171,3 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, i
   );
 };
 
-export default Signup;
