@@ -28,6 +28,11 @@ export const MainContainer = styled.View`
     padding-left: 10px;
     padding-right: 10px;
   `}
+  ${(props) =>
+    props.Events &&
+    `
+    flex-direction: column;
+  `}
 `;
 
 export const SecondContainer = styled.View`

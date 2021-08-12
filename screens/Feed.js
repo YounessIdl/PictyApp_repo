@@ -7,7 +7,7 @@ import { ButtonText, MainContainer, StreamEvent, StyledButton, SubTitle, Colors,
 const {secondary} = Colors;
 
 
-const Feed=({navigation})=> {
+const Feed =({navigation}) => {
   return (
     <MainContainer >
       <StatusBar style="light-content" hidden = {true}/>

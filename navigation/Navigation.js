@@ -4,6 +4,7 @@ import { Fontisto, MaterialIcons, Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
+
 import Login from '../screens/Login';
 import Signup from '../screens/Signup';
 import Welcome from '../screens/Welcome';

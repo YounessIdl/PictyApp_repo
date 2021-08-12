@@ -11,11 +11,11 @@ import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper'; /
 import { color } from 'react-native-reanimated';
 
 const { grey, primary, secondary } = Colors;
-
 //status bar: Barre de notifications
 
-const Login = ({navigation}) => {
+const Login =({navigation}) =>{
   const [hidePassword, setHidePassword] = useState(true);
+
   return (
     <KeyboardAvoidingWrapper>
       <MainContainer>
@@ -23,7 +23,6 @@ const Login = ({navigation}) => {
         <SecondContainer>
           <PageLogo2 resizeMode="contain" source={require('./../assets/img/pictylogo2.png')} />
           <PageTitle>Se connecter</PageTitle>
-
           <Formik
             initialValues={{ email: '', password: '' }}
             onSubmit={(values) => {
@@ -31,7 +30,6 @@ const Login = ({navigation}) => {
               navigation.navigate("Welcome")
             }}
           >
-          
           {({ handleChange, handleBlur, handleSubmit, values }) => ( //Méthodes de formik pour formulaires (change, blur et submit)
           <StyledFormArea>
               <MyTextInput
