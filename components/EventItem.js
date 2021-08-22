@@ -28,14 +28,15 @@ class EventItem extends React.Component {
   render () {
     const event = this.props.event
     const displayEventDetail = this.props.displayEventDetail
+    console.log(event._id)
     return (
     <Animated.View style={{left: this.state.positionLeft}}>
       <TouchableOpacity onPress = {() => displayEventDetail(event._id)} style={styles.vueGlobale}>
          <Image
            style={styles.image}
-           source={require('../assets/img/pictylogo2.png')}
+           source={{uri:event.imageUrl}}
          />
-         <Text style={styles.title_text}>{event.id_user}</Text>
+         <Text style={styles.title_text}>{event.title}</Text>
       </TouchableOpacity>
     </Animated.View>
   )
