@@ -8,14 +8,21 @@ import {
   StyledFormArea, StyledButton, StyledTextInput, LeftIcon, RightIcon, SecondContainer, ButtonText, Line
 } from './../components/styles';
 import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper'; // Pour éviter que le clavier ne cache l'input
-import { color } from 'react-native-reanimated';
+import {signUpWithPseudo} from '../API/Pictyapi';
 
 const { grey, primary, secondary } = Colors;
 //status bar: Barre de notifications
 
 const Login =({navigation}) =>{
-  const [hidePassword, setHidePassword] = useState(true);
+const pseudo="thomasss"
+const email="email de thomasss"
+const password="password de thomas"
 
+  signUpWithPseudo(email,password,pseudo).then(data => { 
+    console.log(data) 
+  })
+
+  const [hidePassword, setHidePassword] = useState(true);
   return (
     <KeyboardAvoidingWrapper>
       <MainContainer>
