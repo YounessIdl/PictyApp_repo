@@ -14,14 +14,14 @@ const { grey, primary, secondary } = Colors;
 //status bar: Barre de notifications
 
 const Login =({navigation}) =>{
-const pseudo="thomasss"
+/*const pseudo="thomasss"
 const email="email de thomasss"
 const password="password de thomas"
 
   signUpWithPseudo(email,password,pseudo).then(data => { 
     console.log(data) 
   })
-
+*/
   const [hidePassword, setHidePassword] = useState(true);
   return (
     <KeyboardAvoidingWrapper>

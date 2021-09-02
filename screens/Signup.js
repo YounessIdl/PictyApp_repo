@@ -9,6 +9,7 @@ import {
   SecondContainer, ButtonText, Line, ExtraView, ExtraText, TextLink, TextLinkContent, Colors, PageTitle, AvatarView,
 } from './../components/styles';
 import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper'; // Pour éviter que le clavier ne cache l'input
+import {signUpWithPseudo} from '../API/Pictyapi'
 
 const { lightGrey, secondary, grey } = Colors;
 
@@ -29,6 +30,12 @@ const Signup = ({navigation}) => {
   const showDatePicker = () => {
     setShow('date');
   };
+
+  function onPressSignUp(values){
+    console.log(values.nom)
+    signUpWithPseudo(values)
+
+  }
 
   return (
     <KeyboardAvoidingWrapper>  
@@ -52,10 +59,11 @@ const Signup = ({navigation}) => {
             )}
 
             <Formik
-            initialValues={{ fullName: '', email: '', dateOfBirth: '', password: '', confirmPassword: '' }}
+            initialValues={{ nom: '', email: '', dateOfBirth: '', password: '', confirmPassword: '' }}
             onSubmit={(values) => {
                 values = { ...values, dateOfBirth: dob };
-                console.log(values);
+                //console.log(values);
+                onPressSignUp(values)
                 navigation.navigate("Welcome")
             }}
             > 
@@ -65,9 +73,9 @@ const Signup = ({navigation}) => {
                       label="Nom et prénom"
                       placeholder="Henri Dupont"
                       placeholderTextColor={grey}
-                      onChangeText={handleChange('fullName')}
-                      onBlur={handleBlur('fullName')}
-                      value={values.fullName}
+                      onChangeText={handleChange('nom')}
+                      onBlur={handleBlur('nom')}
+                      value={values.nom}
                       icon="person"
                   />
                   <MyTextInput
@@ -120,17 +128,20 @@ const Signup = ({navigation}) => {
                   />
                   <AvatarView >
                     <SubTitle>Ajouter une photo ?</SubTitle>
-                    <StyledButton signing={true} onPress={() => {}}>
+                    <StyledButton signing={true} onPress={() => {
+
+                    }}>
                       <Fontisto name="plus-a" size={20} color={'#ffffff'} />
                     </StyledButton>                
                   </AvatarView>
-                  <StyledButton onPress={handleSubmit}>
+                  <StyledButton onPress={
+                    handleSubmit}>
                       <ButtonText>Inscription</ButtonText>
                   </StyledButton>
                   <Line />
                   <ExtraView>
                       <ExtraText>Déjà un compte? </ExtraText>
-                      <TextLink onPress={()=> navigation.navigate("Login")}>
+                      <TextLink onPress={()=> {navigation.navigate("Login")}}>
                       <TextLinkContent>Connexion</TextLinkContent>
                       </TextLink>
                   </ExtraView>

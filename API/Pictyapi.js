@@ -10,7 +10,7 @@ export async function getEventsById(uId){
   }
 }
 
-export async function signUpWithPseudo(email_txt,password_txt,pseudo_txt){
+export async function signUpWithPseudo(values){
     const url='https://pictytest.herokuapp.com/auth/signup'
     let databody={
         
@@ -22,11 +22,13 @@ export async function signUpWithPseudo(email_txt,password_txt,pseudo_txt){
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
+      body:
+       JSON.stringify({
         pseudo: pseudo_txt,
         email: email_txt,
         password: password_txt
       })
+
     });
     return await response.json();
   } catch (error) {
