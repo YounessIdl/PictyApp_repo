@@ -9,6 +9,7 @@ import {
   SecondContainer, ButtonText, Line, ExtraView, ExtraText, TextLink, TextLinkContent, Colors, PageTitle, AvatarView,
 } from './../components/styles';
 import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper'; // Pour éviter que le clavier ne cache l'input
+import {signUpWithPseudo} from '../API/Pictyapi'
 
 const {secondary, grey } = Colors;
 

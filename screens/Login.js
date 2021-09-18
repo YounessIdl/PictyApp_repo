@@ -8,7 +8,7 @@ import {
   StyledFormArea, StyledButton, StyledTextInput, LeftIcon, RightIcon, SecondContainer, ButtonText, Line
 } from './../components/styles';
 import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper'; // Pour éviter que le clavier ne cache l'input
-import { color } from 'react-native-reanimated';
+import {signUpWithPseudo} from '../API/Pictyapi';
 
 const { grey, primary, secondary } = Colors;
 //status bar: Barre de notifications
