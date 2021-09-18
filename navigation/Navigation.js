@@ -64,7 +64,7 @@ const FeedStacks=()=>{
 
 export default () => (
     <NavigationContainer >
-        <AuthStack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
+        <AuthStack.Navigator screenOptions={{headerShown: false}} initialRouteName="Tabs">
             <AuthStack.Screen  name="Login" component={Login} />
             <AuthStack.Screen  name="Signup" component={Signup} />
             <AuthStack.Screen  name="Welcome" component={Welcome} />
