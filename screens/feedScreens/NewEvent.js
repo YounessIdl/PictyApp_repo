@@ -4,12 +4,15 @@ import { Text } from 'react-native';
 import {MainContainer} from '../../components/styles';
   
 
-const NewEvent = ({}) => {
-  return (
-    <MainContainer >
-      <StatusBar style="light" />
-    </MainContainer>
-  );
+class NewEvent extends React.Component {
+  render(){
+    const navigation = this.props.navigation
+    return (
+      <MainContainer >
+        <StatusBar style="light" />
+      </MainContainer>
+    ); 
+  }
 };
 
 export default NewEvent;

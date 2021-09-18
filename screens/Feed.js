@@ -8,7 +8,7 @@ const {secondary} = Colors;
 
 class Feed extends React.Component {
   render(){
-    const navigation = this.navigate();
+    const navigation = this.props.navigation    
     return (
       <MainContainer >
         <StatusBar style="light-content" hidden = {true}/>
@@ -19,7 +19,7 @@ class Feed extends React.Component {
               <SubTitle>Youness </SubTitle>
               <SubTitle>Statut: Visible</SubTitle>
             </View>
-            <StyledButton signing={true} onPress={() => navigation("Settings")}>
+            <StyledButton signing={true} onPress={() => navigation.navigate("Settings")}>
               <Fontisto name="person" size={20} color={'#ffffff'} />
             </StyledButton>  
           </AvatarView>

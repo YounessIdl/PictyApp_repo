@@ -21,7 +21,7 @@ class MyEvents extends React.Component {
         console.log(this.state.events) 
       }) 
   };
-
+ 
   componentDidMount(){
     this.loadEvents("id?id=123456&date_1=2021-08-17T20:23:42.978Z") // User id to get all events 
     console.log("Component mounted")

@@ -5,15 +5,19 @@ import {MainContainer, StyledButton, ButtonText} from '../../components/styles';
 import { Alert } from 'react-native';
   
 
-const Settings = ({navigation}) => {
-  return (
-    <MainContainer>
-      <StatusBar style="light" />
-      <StyledButton createEvent={true} onPress={() => {navigation.navigate("Login"); Alert.alert("Déconnecté");}}>
-        <ButtonText>Se déconnecter</ButtonText>
-      </StyledButton>
-    </MainContainer>
-  );
+class Settings extends React.Component{
+  render(){
+    const navigation = this.props.navigation
+    return (
+      <MainContainer>
+        <StatusBar style="light" />
+        <StyledButton createEvent={true} onPress={() => {navigation.navigate("Login"); Alert.alert("Déconnecté");}}>
+          <ButtonText>Se déconnecter</ButtonText>
+        </StyledButton>
+      </MainContainer>
+    );
+  }
+
 };
 
 export default Settings;
