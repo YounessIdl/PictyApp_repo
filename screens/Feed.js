@@ -6,37 +6,40 @@ import { ButtonText, MainContainer, StreamEvent, StyledButton, SubTitle, Colors,
 
 const {secondary} = Colors;
 
-
-const Feed =({navigation}) => {
-  return (
-    <MainContainer >
-      <StatusBar style="light-content" hidden = {true}/>
-      <ScrollView>
-        <AvatarView feed={true}>
-          <PageLogo3 source={require('./../assets/img/pictylogo2.png')}/>
-          <View >
-            <SubTitle>Youness </SubTitle>
-            <SubTitle>Statut: Visible</SubTitle>
-          </View>
-          <StyledButton signing={true} onPress={() => navigation.navigate("Settings")}>
-            <Fontisto name="person" size={20} color={'#ffffff'} />
-          </StyledButton>  
-        </AvatarView>
-        <StreamEvent>
-          <FontAwesome name="dot-circle-o" size={22} color={secondary} />
-          <SubTitle feed={true}>Pas d'événement en cours </SubTitle>
-          <StyledButton  feed={true}  onPress={() => navigation.push("Streaming")}>
-            <ButtonText >Streaming</ButtonText>
-          </StyledButton>
-        </StreamEvent>
-      </ScrollView>
-      <StyledButton
-        onPress={() => navigation.navigate("NewEvent")}
-        createEvent={true}>
-        <ButtonText style={{color: 'white',}}>Créer un événement</ButtonText>
-      </StyledButton>
-    </MainContainer>
-  );
+class Feed extends React.Component {
+  render(){
+    const navigation = this.navigate();
+    return (
+      <MainContainer >
+        <StatusBar style="light-content" hidden = {true}/>
+        <ScrollView>
+          <AvatarView feed={true}>
+            <PageLogo3 source={require('./../assets/img/pictylogo2.png')}/>
+            <View >
+              <SubTitle>Youness </SubTitle>
+              <SubTitle>Statut: Visible</SubTitle>
+            </View>
+            <StyledButton signing={true} onPress={() => navigation("Settings")}>
+              <Fontisto name="person" size={20} color={'#ffffff'} />
+            </StyledButton>  
+          </AvatarView>
+          <StreamEvent>
+            <FontAwesome name="dot-circle-o" size={22} color={secondary} />
+            <SubTitle feed={true}>Pas d'événement en cours </SubTitle>
+            <StyledButton  feed={true}  onPress={() => navigation.push("Streaming")}>
+              <ButtonText >Streaming</ButtonText>
+            </StyledButton>
+          </StreamEvent>
+        </ScrollView>
+        <StyledButton
+          onPress={() => navigation.navigate("NewEvent")}
+          createEvent={true}>
+          <ButtonText style={{color: 'white',}}>Créer un événement</ButtonText>
+        </StyledButton>
+      </MainContainer>
+    );
+  }
+  
 }
 
 export default Feed;
